@@ -1,8 +1,10 @@
-sequence = [4, 3, 5, 0, 1]
+require 'benchmark'
 
-def swap
-#switch places
+Benchmark.realtime do
+  1_000_000.times{ rand(1000)^2 }
 end
+
+sequence = [4, 3, 5, 0, 1]
 
 def sort(sequence)
 
@@ -27,3 +29,4 @@ swaps = sort(sequence)
 
 puts "Final result: #{sequence}"
 puts "Swaps: #{swaps}"
+puts Benchmark.realtime{ sequence.sort }
